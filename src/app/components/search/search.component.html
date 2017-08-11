@@ -1,24 +1,36 @@
-<h1>Need music????</h1>
+
 
 <div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-6 col-md-offset-3">
+    <h1 class="text-center">Looking for your songs????</h1>
     <p class="lead text-center">
-        Are you looknig for music
+        
     </p>
     <form action="">
-        <div class="form-group">
-            <label for="">Name</label>
-            <input type="text" (keyup)="searchMusic()" name="searchStr" [(ngModel)]="searchStr" class="form-control" placeholder="Search Music" autocomplete="off">
+
+        <div class="form-group has-success has-feedback">
+            <label class="control-label" for="inputGroupSuccess1">Name</label>
+            <div class="input-group">
+                <span class="input-group-addon">
+                        <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span>                            
+                </span>
+                <input (keyup)="searchMusic()" name="searchStr" [(ngModel)]="searchStr" type="text" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status" autocomplete="off"> 
+            </div>
+            
         </div>
+        
     </form>
     <div *ngIf="searchRes">
         <div *ngFor="let item of searchRes;let i=index">
             <div class="row">
                 <div class="col-md-12">
                     <div class="well search-res">
-                        <h4><a routerLink="artist/{{item.id}}" class="text-success">{{item.name}}</a></h4>
+                        <h4><a routerLink="artist/{{item.id}}" class="text-success">
+                            <i class="fa fa-bookmark"></i>
+                            {{item.name}}</a></h4>
                         <div>
                             <strong>Genres: </strong>
                             <span *ngFor="let genre of item.genres">
+                                
                                 {{genre}}
                             </span>
                         </div>

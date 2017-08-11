@@ -1,4 +1,4 @@
-<div id="album" *ngIf="album">
+<div id="album" *ngIf="album" style="margin-top:10px">
   <header class="album-header">
     <div class="row">
       <div class="col-md-4">
@@ -15,7 +15,9 @@
         </h4>
         <h2>{{album.name}}</h2>
         <h5>Release date: {{album.release_date}}</h5>
-        <a href="{{album.external_urls.spotify}}" class="btn btn-primary">View in Spotify</a>
+        <a href="{{album.external_urls.spotify}}" class="btn btn-primary">
+          <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+          View in Spotify</a>
       </div>
     </div>
 
@@ -25,7 +27,9 @@
     <div *ngFor="let track of album.tracks.items">
       <div class="well">
         <h5>{{track.track_number}} - {{track.name}}</h5>
-        <a href="{{track.preview_url}}" target="_blank">Preview track</a>
+        <a href="{{track.preview_url}}" target="_blank">
+          <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+          Preview track</a>
       </div>
     </div>
   </div>
