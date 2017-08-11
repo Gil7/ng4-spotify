@@ -1,0 +1,30 @@
+<h1>Need music????</h1>
+
+<div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-6 col-md-offset-3">
+    <p class="lead text-center">
+        Are you looknig for music
+    </p>
+    <form action="">
+        <div class="form-group">
+            <label for="">Name</label>
+            <input type="text" (keyup)="searchMusic()" name="searchStr" [(ngModel)]="searchStr" class="form-control" placeholder="Search Music" autocomplete="off">
+        </div>
+    </form>
+    <div *ngIf="searchRes">
+        <div *ngFor="let item of searchRes;let i=index">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="well search-res">
+                        <h4><a routerLink="artist/{{item.id}}" class="text-success">{{item.name}}</a></h4>
+                        <div>
+                            <strong>Genres: </strong>
+                            <span *ngFor="let genre of item.genres">
+                                {{genre}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
